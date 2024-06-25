@@ -1,43 +1,90 @@
 package com.example.store.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "shop")
+
+
 public class ProductAvailability
 {
     @Id
     @Column(name = "part_number_id")
-    @Getter @Setter
-    private String part_number;
+    private String partNumber;
 
     @Column(name = "city")
-    @Setter @Getter
     private String city;
 
     @Column(name = "address")
-    @Setter @Getter
     private String address;
 
     @Column(name = "size")
-    @Setter @Getter
     private int size;
 
+
     @Column(name = "color")
-    @Setter @Getter
     private String color;
 
     @Column(name = "count")
-    @Setter @Getter
     private int count;
 
     @Column(name = "cost")
-    @Setter @Getter
     private float cost;
 
+    public String getPartNumber() {
+        return partNumber;
+    }
+
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color.getValue();
+    }
 }

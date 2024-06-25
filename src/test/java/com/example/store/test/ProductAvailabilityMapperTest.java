@@ -1,7 +1,7 @@
 package com.example.store.test;
 
 import com.example.store.mapper.ProductAvailabilityMapper;
-import com.example.store.model.Colors;
+import com.example.store.model.Color;
 import com.example.store.model.ProductAvailability;
 import com.example.store.model.ProductAvailabilityDTO;
 import org.junit.jupiter.api.Assertions;
@@ -22,45 +22,46 @@ public class ProductAvailabilityMapperTest {
 
         model.setAddress("Tut");
         model.setCity("Vrn");
-        model.setCost(123);
+        model.setCost((float) 123.45);
         model.setCount(5);
         model.setSize(46);
-        model.setColor("Red");
-        model.setPart_number("1231412");
+        model.setColor(Color.valueOf("RED"));
+        model.setPartNumber("1231412");
 
         ProductAvailabilityDTO dto = mapperUnderTest.toDTO(model);
 
         Assertions.assertNotNull(dto);
-        Assertions.assertEquals(model.getAddress(), dto.getSoreAddress());
+        Assertions.assertEquals(model.getAddress(), dto.getAddress());
         Assertions.assertEquals(model.getCity(), dto.getCity());
         Assertions.assertEquals(model.getCost(), dto.getCost());
         Assertions.assertEquals(model.getCount(), dto.getCount());
         Assertions.assertEquals(model.getSize(), dto.getSize());
         Assertions.assertEquals(model.getColor(), dto.getColor());
-        Assertions.assertEquals(model.getPart_number(), dto.getPartnumber());
+        Assertions.assertEquals(model.getPartNumber(), dto.getPartNumber());
+
     }
 
     @Test
     void DTOToModel()
     {
         ProductAvailabilityDTO dto = new ProductAvailabilityDTO();
-        dto.setSoreAddress("Tut");
+        dto.setAddress("Tut");
         dto.setCity("Vrn");
-        dto.setCost("123531");
+        dto.setCost((float) 123.45);
         dto.setCount(1);
         dto.setSize((short)38);
-        dto.setColor(Colors.Color.RED);
-        dto.setPartnumber(1231412);
+        dto.setColor(Color.valueOf("RED"));
+        dto.setPartNumber("1231412");
 
         ProductAvailability model = mapperUnderTest.toModel(dto);
 
         Assertions.assertNotNull(mapperUnderTest.toModel(dto));
-        Assertions.assertEquals(dto.getSoreAddress(), model.getAddress());
+        Assertions.assertEquals(dto.getAddress(), model.getAddress());
         Assertions.assertEquals(dto.getCity(), model.getCity());
         Assertions.assertEquals(dto.getCost(), model.getCost());
         Assertions.assertEquals(dto.getCount(), model.getCount());
         Assertions.assertEquals(dto.getSize(), model.getSize());
         Assertions.assertEquals(dto.getColor(), model.getColor());
-        Assertions.assertEquals(dto.getPartnumber(), model.getPart_number());
+        Assertions.assertEquals(dto.getPartNumber(), model.getPartNumber());
     }
 }

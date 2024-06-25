@@ -1,7 +1,7 @@
 package com.example.store.test;
 
 import com.example.store.mapper.ProductCheckAvailabilityMapper;
-import com.example.store.model.Colors;
+import com.example.store.model.Color;
 import com.example.store.model.ProductAvailability;
 import com.example.store.model.ProductCheckAvailabilityDTO;
 import org.junit.jupiter.api.Assertions;
@@ -25,8 +25,8 @@ public class ProductCheckAvailabilityMapperTest {
         model.setCost(123);
         model.setCount(5);
         model.setSize(46);
-        model.setColor("Red");
-        model.setPart_number("1231412");
+        model.setColor(Color.valueOf("RED"));
+        model.setPartNumber("1231412");
 
         ProductCheckAvailabilityDTO dto = mapperUnderTest.toDTO(model);
 
@@ -37,7 +37,7 @@ public class ProductCheckAvailabilityMapperTest {
         Assertions.assertEquals(model.getCount(), dto.getCount());
         Assertions.assertEquals(model.getSize(), dto.getSize());
         Assertions.assertEquals(model.getColor(), dto.getColor());
-        Assertions.assertEquals(model.getPart_number(), dto.getPartNumber());
+        Assertions.assertEquals(model.getPartNumber(), dto.getPartNumber());
     }
 
     @Test
@@ -46,10 +46,10 @@ public class ProductCheckAvailabilityMapperTest {
         ProductCheckAvailabilityDTO dto = new ProductCheckAvailabilityDTO();
         dto.setAddress("Tut");
         dto.setCity("Vrn");
-        dto.setCost("123531");
+        dto.setCost(123531);
         dto.setCount(1);
         dto.setSize((short)38);
-        dto.setColor(Colors.Color.RED);
+        dto.setColor(Color.valueOf("RED"));
         dto.setPartNumber("1231412");
 
         ProductAvailability model = mapperUnderTest.toModel(dto);
@@ -61,7 +61,7 @@ public class ProductCheckAvailabilityMapperTest {
         Assertions.assertEquals(dto.getCount(), model.getCount());
         Assertions.assertEquals(dto.getSize(), model.getSize());
         Assertions.assertEquals(dto.getColor(), model.getColor());
-        Assertions.assertEquals(dto.getPartNumber(), model.getPart_number());
+        Assertions.assertEquals(dto.getPartNumber(), model.getPartNumber());
     }
 
 }
